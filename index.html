@@ -1,10 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COVID-19 VACINAÇÃO</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      background: #fff;
+      font-family: 'Poppins', sans-serif;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
     }
 
-    /* ===== RESPONSIVO (celular) ===== */
+    /* ===== CABEÇALHO / "MENU" ===== */
+    header {
+      background: linear-gradient(135deg, #b30000, #ff4d4d);
+      color: white;
+      text-align: center;
+      padding: 20px 12px;
+      font-family: 'Montserrat', sans-serif;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      box-shadow: 0 6px 18px rgba(179,0,0,0.25);
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    header::after{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 12px;
+      background: radial-gradient(circle at 10% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
+                  radial-gradient(circle at 30% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
+                  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
+                  radial-gradient(circle at 70% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
+                  radial-gradient(circle at 90% 50%, rgba(255,255,255,0.03) 10%, transparent 11%);
+      background-size: 20% 100%;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      margin-top: 6px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* ===== IMAGEM DO VÍRUS ===== */
+    .imagem-covid-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 14px 0 4px;
+      padding: 0 6%;
+    }
+
+    .imagem-covid {
+      width: 100%;
+      max-width: 640px;
+      height: 380px; /* AUMENTADO para ver a imagem completa */
+      border-radius: 14px;
+      overflow: hidden;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      border: 4px solid rgba(179,0,0,0.06);
+    }
+
+    /* ===== BLOCOS DE CONTEÚDO ===== */
+    .bloco {
+      background-color: #fff;
+      margin: 14px 6%;
+      padding: 18px;
+      border-radius: 12px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .bloco:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 26px rgba(179,0,0,0.28);
+    }
+
+    .bloco h2 {
+      color: #b30000;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .bloco p, .bloco ul {
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .bloco ul { margin-left: 18px; margin-top: 8px; }
+
+    .bloco ul li { margin-bottom: 8px; }
+
+    .bloco.atencao {
+      border-left: 6px solid #b30000;
+      background: linear-gradient(180deg, #fff, #fff);
+    }
+
+    .bottom-space { height: 70px; }
+
+    footer {
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 22px 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      margin-top: 6px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    /* ===== RESPONSIVO ===== */
     @media (max-width: 480px) {
       header h1 { font-size: 1.25rem; }
       header p { font-size: 0.85rem; }
-      .imagem-covid { height: 160px; border-radius: 10px; }
+      .imagem-covid { height: 260px; border-radius: 10px; } /* também aumentada no celular */
       .bloco { margin: 10px 5%; padding: 14px; border-radius: 10px; }
       .bottom-space { height: 90px; }
     }
@@ -17,14 +154,12 @@
     <p>Descubra como a ciência ocorreu contra o tempo para salvar milhões de vidas</p>
   </header>
 
-  <!-- IMAGEM DO VÍRUS (link oficial CDC já inserido) -->
   <div class="imagem-covid-wrap">
     <img class="imagem-covid"
          src="https://stacks.cdc.gov/view/cdc/86943/cdc_86943_DS1.jpeg"
          alt="Ilustração do vírus SARS-CoV-2 (COVID-19)">
   </div>
 
-  <!-- BLOCOS SEPARADOS -->
   <div class="bloco" id="covid">
     <h2>O QUE FOI A COVID-19?</h2>
     <p>A covid-19 é uma infecção respiratória aguda causada pelo coronavírus SARS-CoV-2, potencialmente grave, de elevada transmissibilidade e de distribuição global.</p>
@@ -66,7 +201,6 @@
     <p>São produtos biológicos que estimulam o sistema imunológico a se defender contra vírus e bactérias. Podem ser feitas com microrganismos enfraquecidos, inativados ou por meio de tecnologias como RNA mensageiro.</p>
   </div>
 
-  <!-- BLOCO SEPARADO: TIPOS -->
   <div class="bloco" id="tipos">
     <h2>TIPOS DE VACINAS EXISTENTES</h2>
     <ul>
@@ -79,19 +213,16 @@
     </ul>
   </div>
 
-  <!-- BLOCO CONFIANÇA -->
   <div class="bloco" id="confianca">
     <h2>POR QUE DEVEMOS CONFIAR NAS VACINAS</h2>
     <p>Organizações como OMS, FDA e ANVISA afirmam que as vacinas COVID-19 são seguras e eficazes. Elas passaram por ensaios clínicos e continuam sendo monitoradas por programas de farmacovigilância.</p>
   </div>
 
-  <!-- BLOCO DADOS (SEPARADO) -->
   <div class="bloco" id="dados">
     <h2>DADOS DE REDUÇÃO DE MORTES E AUMENTO DE IMUNIDADE</h2>
     <p>Estudo com dados de janeiro a outubro de 2021 incluiu 59.853 casos confirmados e 1.687 mortes. Dos óbitos, 1.269 foram em não vacinados. Entre casos: 48.217 não vacinados, 7.207 parcialmente imunizados e 4.429 com esquema completo. Dos vacinados infectados, 54% tinham mais de 60 anos.</p>
   </div>
 
-  <!-- BLOCO ATENÇÃO (SEPARADO) -->
   <div class="bloco atencao" id="atencao">
     <h2>ATENÇÃO</h2>
     <p>As vacinas são uma das principais ferramentas da saúde pública para evitar mortes e internações. Se tiver dúvidas, consulte um profissional de saúde. Não deixe que a desinformação coloque sua vida e a de sua família em risco.</p>
