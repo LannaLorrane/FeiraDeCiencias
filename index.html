@@ -17,7 +17,6 @@
       -webkit-font-smoothing:antialiased;
     }
 
-    /* ===== CABEÇALHO / "MENU" ===== */
     header {
       background: linear-gradient(135deg, #b30000, #ff4d4d);
       color: white;
@@ -32,51 +31,15 @@
       box-shadow: 0 6px 18px rgba(179,0,0,0.25);
     }
 
-    header h1 {
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
+    header h1 { font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase; line-height: 1.1; }
+    header p { margin-top: 6px; font-size: 0.95rem; font-weight: 500; opacity: 0.95; }
 
-    header p {
-      margin-top: 6px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      opacity: 0.95;
-    }
-
-    header::after{
-      content: "";
-      display: block;
-      width: 100%;
-      height: 12px;
-      background: radial-gradient(circle at 10% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
-                  radial-gradient(circle at 30% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
-                  radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
-                  radial-gradient(circle at 70% 50%, rgba(255,255,255,0.03) 10%, transparent 11%),
-                  radial-gradient(circle at 90% 50%, rgba(255,255,255,0.03) 10%, transparent 11%);
-      background-size: 20% 100%;
-      border-bottom-left-radius: 18px;
-      border-bottom-right-radius: 18px;
-      margin-top: 6px;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    /* ===== IMAGEM DO VÍRUS ===== */
-    .imagem-covid-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 14px 0 4px;
-      padding: 0 6%;
-    }
+    .imagem-covid-wrap { width: 100%; display: flex; justify-content: center; margin: 14px 0 4px; padding: 0 6%; }
 
     .imagem-covid {
       width: 100%;
       max-width: 640px;
-      height: 380px; /* AUMENTADO para ver a imagem completa */
+      height: 380px;
       border-radius: 14px;
       overflow: hidden;
       display: block;
@@ -85,7 +48,6 @@
       border: 4px solid rgba(179,0,0,0.06);
     }
 
-    /* ===== BLOCOS DE CONTEÚDO ===== */
     .bloco {
       background-color: #fff;
       margin: 14px 6%;
@@ -95,35 +57,44 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    .bloco:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 26px rgba(179,0,0,0.28);
-    }
-
-    .bloco h2 {
-      color: #b30000;
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-
-    .bloco p, .bloco ul {
-      font-size: 0.96rem;
-      line-height: 1.55;
-      color: #333;
-      text-align: justify;
-    }
-
+    .bloco:hover { transform: translateY(-6px); box-shadow: 0 12px 26px rgba(179,0,0,0.28); }
+    .bloco h2 { color: #b30000; margin-bottom: 10px; font-size: 1.05rem; font-weight: 700; }
+    .bloco p, .bloco ul { font-size: 0.96rem; line-height: 1.55; color: #333; text-align: justify; }
     .bloco ul { margin-left: 18px; margin-top: 8px; }
-
     .bloco ul li { margin-bottom: 8px; }
 
-    .bloco.atencao {
-      border-left: 6px solid #b30000;
-      background: linear-gradient(180deg, #fff, #fff);
+    .bloco.atencao { border-left: 6px solid #b30000; background: linear-gradient(180deg, #fff, #fff); }
+
+    /* ===== FOTOS ===== */
+    .fotos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin: 50px 0 20px;
+      text-align: center;
     }
 
-    .bottom-space { height: 70px; }
+    .foto {
+      flex: 1 1 220px;
+      max-width: 240px;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      border: 3px solid #b30000;
+    }
+
+    .foto p {
+      margin-top: 8px;
+      font-weight: 600;
+      color: #b30000;
+      font-size: 1rem;
+    }
 
     footer {
       background-color: #b30000;
@@ -137,13 +108,8 @@
       border-top-right-radius: 8px;
     }
 
-    /* ===== RESPONSIVO ===== */
     @media (max-width: 480px) {
-      header h1 { font-size: 1.25rem; }
-      header p { font-size: 0.85rem; }
-      .imagem-covid { height: 260px; border-radius: 10px; } /* também aumentada no celular */
-      .bloco { margin: 10px 5%; padding: 14px; border-radius: 10px; }
-      .bottom-space { height: 90px; }
+      .foto img { height: 200px; }
     }
   </style>
 </head>
@@ -155,9 +121,7 @@
   </header>
 
   <div class="imagem-covid-wrap">
-    <img class="imagem-covid"
-         src="https://stacks.cdc.gov/view/cdc/86943/cdc_86943_DS1.jpeg"
-         alt="Ilustração do vírus SARS-CoV-2 (COVID-19)">
+    <img class="imagem-covid" src="https://stacks.cdc.gov/view/cdc/86943/cdc_86943_DS1.jpeg" alt="Ilustração do vírus SARS-CoV-2 (COVID-19)">
   </div>
 
   <div class="bloco" id="covid">
@@ -228,7 +192,28 @@
     <p>As vacinas são uma das principais ferramentas da saúde pública para evitar mortes e internações. Se tiver dúvidas, consulte um profissional de saúde. Não deixe que a desinformação coloque sua vida e a de sua família em risco.</p>
   </div>
 
-  <div class="bottom-space"></div>
+  <!-- FOTOS DAS INTEGRANTES -->
+  <div class="fotos">
+    <div class="foto">
+      <img src="img-lanna.jpg" alt="Lanna Lorrane">
+      <p>Lanna Lorrane</p>
+    </div>
+
+    <div class="foto">
+      <img src="img-lilian.jpg" alt="Lilian Alessandra">
+      <p>Lilian Alessandra</p>
+    </div>
+
+    <div class="foto">
+      <img src="img-lara.jpeg" alt="Lara Fábian">
+      <p>Lara Fábian</p>
+    </div>
+
+    <div class="foto">
+      <img src="img-anyy.jpg" alt="Anny Sophia">
+      <p>Anny Sophia</p>
+    </div>
+  </div>
 
   <footer>
     Feira de Ciências – BIOLOGIA EMIDES2AM
